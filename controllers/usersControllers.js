@@ -8,7 +8,7 @@ exports.userEntry = async (req, res) => {
         if (existingUser) {
             return res.status(202).json(existingUser._id);
         }
-        if (req.body) {
+        if (!req.body) {
             return res.status(400).json("no use details");  
         }
         const user = new User(req.body);
